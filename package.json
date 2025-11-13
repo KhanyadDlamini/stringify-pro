@@ -1,0 +1,22 @@
+{
+  "name": "khanya-stringify-pro",
+  "version": "1.1.0",
+  "description": "Safely stringify complex nested objects with support for circular refs, arrays, Maps, Sets, functions, and symbols",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node demo.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "stringify",
+    "circular",
+    "json",
+    "safe",
+    "deep",
+    "complex",
+    "maps",
+    "sets"
+  ],
+  "author": "Khanyakwezwe",
+  "license": "MIT"
+}
