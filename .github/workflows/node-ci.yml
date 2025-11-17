@@ -59,11 +59,11 @@ jobs:
           fi
 
       - name: Upload coverage report (optional)
+        if: always()
         run: |
           if [ -d coverage ]; then
             echo "Uploading coverage report..."
-            # Use official upload action
-            echo "coverage" > path.txt
+            # Use the GitHub Actions official upload-artifact action
             gh actions upload-artifact --name coverage-report --path coverage
           else
             echo "No coverage folder found, skipping..."
