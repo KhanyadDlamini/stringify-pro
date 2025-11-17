@@ -1,6 +1,6 @@
 {
   "name": "khanya-stringify-pro",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A powerful and safe JSON.stringify alternative that handles circular references, deep objects, Maps, Sets, functions, symbols, and more.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
