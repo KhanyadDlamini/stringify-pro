@@ -5,14 +5,14 @@ Designed to never crash, even when objects get too deep or self-referencing.
 
 ## Features
 
-✅ Handles circular references automatically ("[Circular]")
-✅ Stringifies deep objects safely
-✅ Converts Functions → [Function: name]
-✅ Converts Symbols → "Symbol(desc)"
-✅ Supports Maps, Sets, and Nested Arrays
-✅ Optional maxDepth to prevent runaway structures
-✅ Pretty-printing with configurable space
-✅ Fail-safe for large, complex, or unpredictable objects
+- ✅ Handles circular references automatically (`"[Circular]"`)
+- ✅ Stringifies deep objects safely
+- ✅ Converts Functions → `[Function: name]`
+- ✅ Converts Symbols → `"Symbol(desc)"`
+- ✅ Supports Maps, Sets, and Nested Arrays
+- ✅ Optional `maxDepth` to prevent runaway structures
+- ✅ Pretty-printing with configurable `space`
+- ✅ Fail-safe for large, complex, or unpredictable objects
 
 ## Installation
 
@@ -49,7 +49,9 @@ const json = safeStringify(obj, {
 console.log(json);
 
 ``` 
-## Output
+## Usage
+
+```javascript
 {
   "name": "Khanya",
   "nested": {
@@ -77,30 +79,37 @@ console.log(json);
   "sym": "Symbol(id)",
   "self": "[Circular]"
 }
-
+```
 
 ## API Reference
 safeStringify(value, options?)
-| Option                | Type     | Default        | Description                      |                     |
-| --------------------- | -------- | -------------- | -------------------------------- | ------------------- |
-| `maxDepth`            | `number` | `Infinity`     | Limits how deep recursion goes   |                     |
-| `space`               | `number  | string`        | `0`                              | Pretty-print spaces |
-| `circularPlaceholder` | `string` | `"[Circular]"` | String to show for circular refs |                     |
+| Option                | Type     | Default        | Description                      |
+| --------------------- | -------- | -------------- | -------------------------------- |
+| `maxDepth`            | `number` | `Infinity`     | Limits how deep recursion goes   |
+| `space`               | `number  | string`        | `0`                              |
+| `circularPlaceholder` | `string` | `"[Circular]"` | String to show for circular refs |
 
 
 ## Why Use Khanya Stringify Pro?
 
-JSON.stringify fails when:
+`JSON.stringify` fails or breaks when dealing with:
 
-❌ Circular references
-❌ Functions
-❌ Symbols
-❌ Maps
-❌ Sets
-❌ Too deeply nested structures
+- ❌ Circular references  
+- ❌ Functions  
+- ❌ Symbols  
+- ❌ Maps  
+- ❌ Sets  
+- ❌ Deeply nested structures  
 
-This library handles all of these.
-Perfect for debugging, logging, Express APIs, Mongo logs, and serialization utilities.
+Khanya Stringify Pro handles **all of these** safely.
+
+Perfect for:
+
+- Debugging complex objects  
+- Logging large structures  
+- Express & API responses  
+- MongoDB logging  
+- Serialization utilities  
 
 
 ## License
