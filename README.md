@@ -1,9 +1,9 @@
 # stringify-pro
 
+[![CI](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml/badge.svg?branch=main)](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml)
 [![npm version](https://img.shields.io/npm/v/khanya-stringify-pro.svg?style=flat-square)](https://www.npmjs.com/package/khanya-stringify-pro)
 [![npm downloads](https://img.shields.io/npm/dm/khanya-stringify-pro.svg?style=flat-square)](https://www.npmjs.com/package/khanya-stringify-pro)
 [![License](https://img.shields.io/npm/l/khanya-stringify-pro.svg?style=flat-square)](https://github.com/KhanyadDlamini/khanya-mongoose/blob/main/LICENSE)
-[![CI](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml/badge.svg)](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml)
 [![Buy Me a Coffee](https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-orange?style=flat-square)](https://buymeacoffee.com/Khanyakwezwe)
 [![Open Collective](https://img.shields.io/badge/Support-Open%20Collective-blue?style=flat-square)](https://opencollective.com/khanyakwezwe-dlamini)
 
