@@ -1,6 +1,6 @@
 # stringify-pro
 
-[![CI Status](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml/badge.svg)](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions)
+[![CI Status](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions/workflows/node-ci.yml/badge.svg?branch=main)](https://github.com/KhanyadDlamini/khanya-stringify-pro/actions)
 [![npm version](https://img.shields.io/npm/v/khanya-stringify-pro.svg?style=flat-square)](https://www.npmjs.com/package/khanya-stringify-pro)
 [![npm downloads](https://img.shields.io/npm/dm/khanya-stringify-pro.svg?style=flat-square)](https://www.npmjs.com/package/khanya-stringify-pro)
 [![License](https://img.shields.io/npm/l/khanya-stringify-pro.svg?style=flat-square)](https://github.com/KhanyadDlamini/khanya-mongoose/blob/main/LICENSE)
