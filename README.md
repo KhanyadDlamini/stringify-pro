@@ -1,16 +1,18 @@
 # stringify-pro
 
-Safely stringify complex nested objects without throwing errors on circular references. Handles Arrays, Maps, Sets, Functions, Symbols, and deeply nested structures.
+A safer, smarter alternative to JSON.stringify — built for real-world apps handling complex nested objects, circular references, Maps, Sets, Functions, Symbols, and more.
+Designed to never crash, even when objects get too deep or self-referencing.
 
 ## Features
 
-- ✅ Circular reference detection (`[Circular]`)
-- ✅ Deeply nested objects
-- ✅ Arrays, Maps, Sets
-- ✅ Functions converted to string `[Function: name]`
-- ✅ Symbols converted to string `Symbol(description)`
-- ✅ Max depth limit to prevent huge objects
-- ✅ Pretty-print JSON with configurable spaces
+✅ Handles circular references automatically ("[Circular]")
+✅ Stringifies deep objects safely
+✅ Converts Functions → [Function: name]
+✅ Converts Symbols → "Symbol(desc)"
+✅ Supports Maps, Sets, and Nested Arrays
+✅ Optional maxDepth to prevent runaway structures
+✅ Pretty-printing with configurable space
+✅ Fail-safe for large, complex, or unpredictable objects
 
 ## Installation
 
@@ -20,11 +22,10 @@ npm install stringify-pro
 # or
 yarn add stringify-pro
 ```
-```
 ## Usage
 
 ```javascript
-const { safeStringify } = require('stringify-pro');
+const { safeStringify } = require("khanya-stringify-pro");
 
 const obj = {
   name: "Khanya",
@@ -36,18 +37,19 @@ const obj = {
   sym: Symbol("id")
 };
 
-// Circular reference
+// Add circular reference
 obj.self = obj;
 
 const json = safeStringify(obj, {
-  maxDepth: 3,        // Optional: max depth
-  space: 2,           // Optional: pretty-print spaces
-  circularPlaceholder: "[Circular]" // Optional: custom circular string
+  maxDepth: 3,
+  space: 2,
+  circularPlaceholder: "[Circular]"
 });
 
 console.log(json);
 
-/* Output:
+``` 
+## Output
 {
   "name": "Khanya",
   "nested": {
@@ -75,18 +77,34 @@ console.log(json);
   "sym": "Symbol(id)",
   "self": "[Circular]"
 }
-*/
-``` 
-## API
-### `safeStringify(value, options)`
-- `value`: The value to stringify (object, array, etc.)
-- `options` (optional): Configuration object
-  - `maxDepth` (number): Maximum depth to traverse (default: `Infinity`)
-  - `space` (number|string): Number of spaces or string for pretty-printing (default: `0`)
-  - `circularPlaceholder` (string): Placeholder for circular references (default: `"[Circular]"`)
+
+
+## API Reference
+safeStringify(value, options?)
+| Option                | Type     | Default        | Description                      |                     |
+| --------------------- | -------- | -------------- | -------------------------------- | ------------------- |
+| `maxDepth`            | `number` | `Infinity`     | Limits how deep recursion goes   |                     |
+| `space`               | `number  | string`        | `0`                              | Pretty-print spaces |
+| `circularPlaceholder` | `string` | `"[Circular]"` | String to show for circular refs |                     |
+
+
+## Why Use Khanya Stringify Pro?
+
+JSON.stringify fails when:
+
+❌ Circular references
+❌ Functions
+❌ Symbols
+❌ Maps
+❌ Sets
+❌ Too deeply nested structures
+
+This library handles all of these.
+Perfect for debugging, logging, Express APIs, Mongo logs, and serialization utilities.
+
 
 ## License
-MIT © Khanyakwezwe
+MIT © Khanyakwezwe Dlamini
 
 
 

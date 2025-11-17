@@ -3,7 +3,8 @@ function safeStringify(obj, options = {}) {
         replacer = null,
         space = 2,
         circularPlaceholder = "[Circular]",
-        maxDepth = Infinity
+        maxDepth = Infinity,
+        maxArrayLength = Infinity
     } = options;
 
     const seen = new WeakSet();
@@ -11,42 +12,63 @@ function safeStringify(obj, options = {}) {
     function _stringify(value, depth = 0) {
         if (depth > maxDepth) return "[Max Depth Reached]";
 
-        if (typeof value === "function") return `[Function: ${value.name || "anonymous"}]`;
-        if (typeof value === "symbol") return value.toString();
+        const type = typeof value;
 
-        if (value && typeof value === "object") {
+        // Primitive types
+        if (value === null || type === "number" || type === "boolean" || type === "string")
+            return value;
+
+        if (type === "function")
+            return `[Function: ${value.name || "anonymous"}]`;
+
+        if (type === "symbol")
+            return value.toString();
+
+        // Objects
+        if (type === "object") {
             if (seen.has(value)) return circularPlaceholder;
             seen.add(value);
 
+            // Arrays
             if (Array.isArray(value)) {
-                return value.map(v => _stringify(v, depth + 1));
+                const arr = value.slice(0, maxArrayLength);
+                return arr.map((v) => _stringify(v, depth + 1));
             }
 
+            // Maps
             if (value instanceof Map) {
-                const objMap = {};
+                const mapObj = {};
                 for (const [k, v] of value.entries()) {
-                    objMap[k] = _stringify(v, depth + 1);
+                    mapObj[k] = _stringify(v, depth + 1);
                 }
-                return objMap;
+                return mapObj;
             }
 
+            // Sets
             if (value instanceof Set) {
                 return Array.from(value).map(v => _stringify(v, depth + 1));
             }
 
-            const newObj = {};
-            for (const key in value) {
-                if (Object.hasOwnProperty.call(value, key)) {
-                    newObj[key] = _stringify(value[key], depth + 1);
+            // Regular objects
+            const result = {};
+            for (const key of Object.keys(value)) {
+                try {
+                    result[key] = _stringify(value[key], depth + 1);
+                } catch (err) {
+                    result[key] = `[Error: ${err.message}]`;
                 }
             }
-            return newObj;
+            return result;
         }
 
         return value;
     }
 
-    return JSON.stringify(_stringify(obj), replacer, space);
+    try {
+        return JSON.stringify(_stringify(obj), replacer, space);
+    } catch (err) {
+        return `{"error": "Failed to stringify object: ${err.message}"}`;
+    }
 }
 
 module.exports = { safeStringify };
