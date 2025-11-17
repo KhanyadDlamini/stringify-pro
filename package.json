@@ -26,13 +26,13 @@
   ],
   "author": "Khanyakwezwe Dlamini",
   "license": "MIT",
-  "homepage": "https://github.com/KhanyadDlamini/khanya-stringify-pro",
+  "homepage": "https://github.com/KhanyadDlamini/stringify-pro",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KhanyadDlamini/khanya-stringify-pro"
+    "url": "git+https://github.com/KhanyadDlamini/stringify-pro"
   },
   "bugs": {
-    "url": "https://github.com/KhanyadDlamini/khanya-stringify-pro/issues"
+    "url": "https://github.com/KhanyadDlamini/stringify-pro/issues"
   },
   "funding": {
     "type": "individual",
